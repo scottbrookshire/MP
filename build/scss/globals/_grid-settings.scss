@@ -1,0 +1,28 @@
+/* Grid Settings
+------------------------------------------------------------ */
+
+@import "../libs/neat/neat-helpers"; // or "neat-helpers" when in Rails
+
+// Change the grid settings
+$grid-columns: 12;
+$max-width: em(1200);
+
+// Visual Grid Happy Helper
+$visual-grid: false;
+$visual-grid-index: front;
+$visual-grid-opacity: .5;
+
+$visual-grid-color: red;
+$gutter: golden-ratio(1em, 1);
+
+//Media Queries
+$small		:new-breakpoint( max-width 640px, 12 );
+$medium 	:new-breakpoint( min-width 641px max-width 899px, 12 );
+$big 		:new-breakpoint( min-width 900px, 12 );
+
+
+// Legend
+// col4 = 4 columns
+// col3 = 3 columns
+// colL = Left column
+// colR = Right Column

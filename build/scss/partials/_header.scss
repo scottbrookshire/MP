@@ -1,0 +1,265 @@
+/* Home
+------------------------------------------------------------ */
+.header{
+	background-color: $cardBg;
+	@extend .shadow;
+	@include outer-container;
+	padding: 4em 2em 1.5em 2.5em;
+	z-index:999;
+	position: relative;
+	@include media (max-width 1150px) {
+		padding-top: 1.2em;
+		padding-bottom: 1.8em;
+	}
+	@include media($medium){
+		padding-left: .5em;
+	}
+	@include media($small){
+		padding: 0em 1.5em 0em 0em;
+	}
+}
+
+#nav{
+	padding-top: 4em;
+	// float:left;
+		@include media (max-width 1150px) {
+		padding-top: 0em;
+	}
+	ul{
+		li{
+			display:inline;
+			padding-left: 2%;
+			@include media (min-width 1300px) {
+				padding-left: 3.3%;
+			}			
+			&:nth-child(-n+5)::after{
+				content:"|";
+				padding-left: 2%;
+				color:lighten($bodyColor, 40%);
+				@include media (min-width 1300px) {
+					padding-left: 3.3%;
+				}
+				@include media(max-width 650px){
+					display:none;
+				}
+			}
+			@include media($medium){
+				font-size: .9em;
+				padding-left: 1%;
+			}
+			
+		}
+		a{
+			padding-bottom: .25em;
+			color:lighten($bodyColor, 10%);
+			letter-spacing: .02em;
+			font-style: normal;
+		}
+		a:hover{
+			box-shadow: 0px 3px $linkColorHover;
+			color:$accentColor;
+		}
+		.selected{
+			color:$accentColor;
+		}
+	}
+}
+
+.logo{
+        z-index: 9990;
+		max-width:18em;
+		width:100%;
+		padding-top: 0em;
+        height:30%;
+        float:left;
+
+        // visibility: hidden;
+        path, rect, circle{
+            // fill:$primColor;
+            opacity: 1;
+            }
+        &:hover path, &:hover circle, &:hover rect{
+            // fill:$linkHover;
+           
+        }
+        &:active path, &:visited path{
+            // fill:$linkHover;
+        }
+        a:hover{
+        	 box-shadow: 0 0px 0 rgba(255,255,255,0);
+        }
+        @include media (max-width 1150px) {
+			float:none;
+		}
+        @include media($medium){
+            max-width:15em;
+
+           
+        }
+        @include media($small){
+            max-width:15em; 
+            // margin-left: -.5em;
+            float:left;
+        }
+	}
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------
+  NECESSARY STYLES FOR RESPONSIVE NAV
+--------------------------------------------- */
+
+.nav-collapse ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none;
+}
+
+.nav-collapse li {
+  width: 100%;
+  display: block;
+}
+
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.nav-collapse.opened {
+  max-height: 9999px;
+}
+
+@media screen and (min-width: 40em) {
+  .js .nav-collapse {
+    position: relative;
+    max-height: none;
+  }
+  #nav-toggle {
+    display: none;
+  }
+}
+
+
+/* ------------------------------------------
+  DEMO PAGE'S STYLES
+--------------------------------------------- */
+
+
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+// body {
+//   -webkit-text-size-adjust: 100%;
+//   -ms-text-size-adjust: 100%;
+//   text-size-adjust: 100%;
+//   color: #37302a;
+//   background: #fff;
+//   font: normal 100%/1.4 sans-serif;
+// }
+
+// .nav-collapse,
+// .nav-collapse * {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+@media screen and (max-width: 640px){
+.nav-collapse,
+.nav-collapse ul {
+  list-style: none;
+  width: 100%;
+  float: right;
+  text-align: right;
+}
+
+.nav-collapse li {
+  float: right;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
+
+}
+}
+
+// @media screen and (min-width: 40em) {
+//   .nav-collapse li {
+//     width: 25%;
+//     *width: 24.9%; /* IE7 Hack */
+//     _width: 19%; /* IE6 Hack */
+//   }
+// }
+
+// .nav-collapse a {
+//   color: #fff;
+//   text-decoration: none;
+//   width: 100%;
+//   background: #f4421a;
+//   border-bottom: 1px solid white;
+//   padding: 0.7em 1em;
+//   float: left;
+// }
+
+@media screen and (min-width: 40em) {
+  .nav-collapse a {
+    margin: 0;
+ 
+    // float: left;
+    text-align: center;
+    border-bottom: 0;
+    border-right: 1px solid white;
+  }
+}
+
+.nav-collapse ul ul a {
+  background: #ca3716;
+  padding-left: 2em;
+}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse ul ul a {
+    display: none;
+  }
+}
+
+#nav-toggle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  margin-top: 1em;
+  float: right;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: #f4421a url("../img/hamburger.gif") no-repeat 50% 33%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.3), screen and (min--moz-device-pixel-ratio: 1.3), screen and (-o-min-device-pixel-ratio: 2 / 1), screen and (min-device-pixel-ratio: 1.3), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  #nav-toggle {
+    background-image: url("../img/hamburger-retina.gif");
+    -webkit-background-size: 100px 100px;
+    -moz-background-size: 100px 100px;
+    -o-background-size: 100px 100px;
+    background-size: 100px 100px;
+  }
+}

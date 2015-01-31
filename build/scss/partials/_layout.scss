@@ -1,0 +1,50 @@
+/* Layout
+------------------------------------------------------------ */
+.shadow{
+	box-shadow: 0 0 12px rgba(50,50,50,.05);
+}
+
+body{
+	background-color: $bodyBg;
+	font-size: 1em;
+	// padding-top: 3em;
+	// @include media($small){
+	// 	font-size: 50px;
+	// }
+
+}
+
+.wrapper{
+	background-color: $wrapperBg;
+	@include outer-container();
+	padding:0 3%;
+	padding-top: 3%;
+	@extend .shadow;
+	z-index: 1;
+	position: relative;
+	
+}
+
+img {
+    vertical-align: middle;
+    width:100%;
+}
+
+// .col1{
+// 		@include span-columns(1);
+// 	}
+// .col2{
+// 	@include span-columns(2);
+// }
+// .col3{
+// 		@include span-columns(3);
+// 	}
+// .col4{
+// 	@include span-columns(4);
+// }
+// .col5{
+// 		@include span-columns(5);
+// 	}
+// .col6{
+// 	@include span-columns(6);
+// }

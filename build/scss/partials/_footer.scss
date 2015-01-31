@@ -1,0 +1,38 @@
+/* Footer
+------------------------------------------------------------ */
+
+.footer{
+	background-color: $footerBg;
+	padding: 5% 10%;
+
+
+	@include outer-container;
+
+	z-index:999;
+	position: relative;
+	.col3{
+		@include span-columns(3);
+		&:nth-child(4){
+			@include omega();
+		}
+		@include media($small){
+			@include span-columns(6);
+			&:nth-child(2){
+				@include omega();
+			}
+		}
+	}
+	ul li{
+		color:rgba(150,150,150,.8);
+		font-style: normal;
+		font-size: .8em;
+	}
+	a{
+		color:rgba(255,255,255,.7);
+		padding-bottom: .1em;
+	}
+	a:hover{
+		color:$accentColor;
+		
+	}
+}

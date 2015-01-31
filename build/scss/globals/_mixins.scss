@@ -1,0 +1,65 @@
+/* Helper Mixins
+------------------------------------------------------------ */
+
+
+
+
+/* ==========================================================================
+
+   Vertical Rhythm and Modular Scale with Baseline Grid by Justin Metros
+   // inspired by www.gridlover.net
+
+   ========================================================================== */
+
+
+// Sass Exponent Mixin
+@function exponent($base, $exponent) {
+  $value: $base;
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+  }
+  @if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+
+// Rhythm Mixin. Adheres to Baseline Grid.
+@mixin rhythm($scale, $before: 0, $after: 0) {
+  @if $scale == 0 and $before == 0 and $after == 0 {
+    font-size: $bodyFontSize;
+    line-height: $bodyFontSize * $bodyLineHeight;
+  }
+  @else {
+    @if $scale == 0 {
+      font-size: $bodyFontSize;
+      line-height: $bodyFontSize * $bodyLineHeight;
+    }
+    @else {
+      $newFontSize: round($bodyFontSize * exponent($scaleFactor, $scale));
+      font-size: $newFontSize;
+      line-height: ceil($newFontSize / ($bodyLineHeight * $bodyFontSize)) * $bodyLineHeight * $bodyFontSize;
+    }
+    margin-top: $bodyFontSize * $bodyLineHeight * $before;
+    margin-bottom: $bodyFontSize * $bodyLineHeight * $after;
+  }
+}
+
+
+// Rhythm Mixin. Margins Only.
+@mixin margins($before: 0, $after: 0) {
+  margin-top: $bodyFontSize * $bodyLineHeight * $before;
+  margin-bottom: $bodyFontSize * $bodyLineHeight * $after;
+}
+
+
+// Rhythm Mixin. Padding Only.
+@mixin paddings($before: 0, $after: 0) {
+  padding-top: $bodyFontSize * $bodyLineHeight * $before;
+  padding-bottom: $bodyFontSize * $bodyLineHeight * $after;
+}

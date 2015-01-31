@@ -1,0 +1,246 @@
+/* Home
+------------------------------------------------------------ */
+
+
+.cardImg{
+	background-color: $cardBg;
+	@extend .shadow;
+	margin-bottom: 4%;
+	@include outer-container;
+	position:relative;
+
+	.colL{
+		@include span-columns(7);
+		@include media(max-width 950px){
+			@include span-columns(6);
+				overflow: auto;
+			img{
+				width:555px;
+				height:370px;
+			}
+		}
+		@include media($small){
+			@include span-columns(12);
+			img{
+				width:100%;
+				height:inherit;
+			}
+		}
+	}
+
+	.colR{
+		@include span-columns(5);
+		padding-top: 10%;
+		padding-right: 2%;
+		// width: 37%;
+		// height: 50%;
+
+		// margin: auto;
+		// position: absolute;
+		// top: 0; left: 0; bottom: 0; right: 2%;
+		// @include media(max-width 1000px){
+		// 	height:95%;
+		// }
+		@include media(max-width 1000px){
+			padding-top: 5%;
+		}
+		@include media(max-width 950px){
+			@include span-columns(6);
+		}
+		@include media($small){
+			@include span-columns(12);
+			padding-left: 4%;
+		}
+	}
+}
+
+.cardIcon{
+	@include outer-container;
+	margin-top: 6%;
+	margin-bottom: 4%;
+	// background-color: $cardBg;
+	padding-left: 4em;
+	// @extend .shadow;
+	@include media(max-width 950px){
+		
+	}
+	@include media($medium){
+		padding-left: 1em;
+	}
+	@include media($small){
+		padding-left: 1em;
+		// margin-top: 2em;
+	}
+	.colL{
+		@include span-columns(6);
+		@include media($small){
+			@include span-columns(12);
+		}
+	}
+	.colR{
+		@include span-columns(6);
+		padding:2% 10%;
+		@include media($small){
+			@include span-columns(8);
+			@include shift(2)
+		}
+	}
+	&.contact{
+		margin-top: 3.5%;
+	}
+}
+
+.fullImg{
+	margin-bottom: 4%;
+	// width:108%;
+	// margin-left: -3.6%;
+	@include media($medium){
+		// margin-top: 2em;
+	}
+	@include media($small){
+		// margin-top: 1em;
+	}
+}
+
+.cardHomeServices{
+	background-color: $cardBg;
+	@include outer-container;
+	@extend .shadow;
+	margin-bottom: 4%;
+	padding: 4%;
+	.col4{
+		@include span-columns(4);
+		@include media($small){
+			@include span-columns(12);
+		}
+		&:nth-child(3){
+			@include omega();
+		}
+		&.icon{
+			@include media($small){
+				@include span-columns(8);
+				@include shift(2)
+			}
+		}
+	}
+	.colFull{
+		@include span-columns(12);
+		// clear:both;
+	}
+	.colL{
+		@include span-columns(4);
+		@include media($small){
+			@include span-columns(8);
+			@include shift(2)
+		}
+	}
+	.colR{
+		@include span-columns(7);
+		@include omega();
+		padding-top: 2.5em;
+		@include media($small){
+			@include span-columns(12);
+			padding-top: .75em;
+		}
+	}
+	.colTeam{
+		@include span-columns(4);
+		padding:3.5%;
+		@include media($small){
+			@include span-columns(8);
+			@include shift(2)
+		}
+	}
+	.row{
+		@include outer-container;
+	}
+	.thumb img{
+		border-radius: 1100px;
+		padding-top: 1em;
+	}
+	ul{
+		padding-top: 2em;
+		@include media($small){
+			padding-top: 0;
+		}
+	}
+	&.detail li{
+		color:$accentColor;
+	}
+	li{
+		padding-bottom: 1.2em;
+		@include media($small){
+			padding-bottom: 0em;	
+		}
+		&::before{
+			content:'\ffed';
+			padding-right: .75em;
+			font-size: .75em;
+			color:lighten($bodyColor, 27%);
+		}
+	}
+}
+
+.contactInfo{
+	@include outer-container();
+	margin-bottom: 4%;
+	padding-left: 3%;
+	@include media($small){
+		padding-top: 2em;
+	}
+	.colL{
+		@include span-columns(6);
+
+		@include media($small){
+			@include span-columns(12);
+		}
+
+	}
+	.colR{
+		@include span-columns(5);
+		padding-left: 3%;
+		padding-top: 3%;
+		@include media($small){
+			@include span-columns(12);
+		}
+	}
+	li{
+		padding-bottom:.5em;
+		@include media($small){
+			padding-bottom: 0em;	
+		}
+		&:nth-child(3){
+			padding-bottom: 4%;
+		}
+		&:nth-child(n+4){
+			color:$accentColor;
+		}
+	}
+}
+.svgNOTYET{
+        z-index: 9990;
+		max-width:7.5em;
+		width:100%;
+		padding-top: 0em;
+        height:30%;
+        // visibility: hidden;
+        path, rect, circle{
+            // fill:$primColor;
+            opacity: 1;
+            }
+        &:hover path, &:hover circle, &:hover rect{
+            // fill:$linkHover;
+        }
+        &:active path, &:visited path{
+            // fill:$linkHover;
+        }
+        @include media($medium){
+            max-width:6em;
+            height:10%;
+        }
+        @include media($small){
+            max-width:4.8em; 
+            margin-left: -.5em;
+            margin-top: 0;
+        }
+	}

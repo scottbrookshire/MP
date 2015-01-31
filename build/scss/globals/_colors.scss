@@ -1,0 +1,38 @@
+/* Colors
+------------------------------------------------------------ */
+
+$bodyColor          	: #808080;
+$accentColor	        : #67acc3;
+$linkColor              : #333;
+$linkColorHover         : #67acc3;
+
+
+$bodyBg					: #cecece;
+$cardBg					: #fcfcfc;
+$wrapperBg				: #f3f3f3;
+$footerBg				: #545656;
+
+
+a{
+	text-decoration: none;
+	&:link, &:visited, &:active{
+		color:$linkColor  ;
+		// @extend .transition; 
+	}	
+	&:hover{
+		color:$linkColorHover;
+		box-shadow: 0 2px 0 $accentColor;
+	
+		// @extend .transitionHover;
+	}
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
